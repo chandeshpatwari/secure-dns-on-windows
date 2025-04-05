@@ -257,7 +257,7 @@ function StartSetup {
 mkdir $env:TEMP/dohsetup
 cd $env:TEMP/dohsetup
 irm https://github.com/chandeshpatwari/secure-dns-on-windows/raw/refs/heads/main/cloudflared-windows/config.yaml > config.yml
-irm https://github.com/chandeshpatwari/secure-dns-on-windows/raw/refs/heads/main/cloudflared-windows/transformed_providers.json > transformed_providers.json
+(irm https://raw.githubusercontent.com/chandeshpatwari/secure-dns-on-windows/refs/heads/main/cloudflared-windows/transformed_providers.json | ConvertTo-Json) > transformed_providers.json
 
 $Command = 'cloudflared'
 $Application = 'cloudflared.exe'
