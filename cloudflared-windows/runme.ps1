@@ -1,3 +1,9 @@
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    Write-Host 'Not running with admin privileges. Restarting with admin privileges...'
+    Start-Process -FilePath powershell.exe -WindowStyle Normal -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs -Wait; Exit
+}
+
+
 function Get-ProcessIDByPort {
     param(
         [int]$Port
