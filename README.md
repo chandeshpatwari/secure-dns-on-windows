@@ -6,5 +6,5 @@ winget install cloudflared.cloudflared
 
 2. Setup
 ```sh
-irm https://raw.githubusercontent.com/chandeshpatwari/secure-dns-on-windows/refs/heads/main/cloudflared.ps1 | iex
+irm https://github.com/chandeshpatwari/secure-dns-on-windows/raw/refs/heads/main/cloudflared-windows/runme.ps1 > runme.ps1; ./runme.ps1
 ```
