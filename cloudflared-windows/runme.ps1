@@ -229,7 +229,7 @@ $Command = 'cloudflared'
 $Application = 'cloudflared.exe'
 $servicepath = "$env:SYSTEMROOT\system32\config\systemprofile\.cloudflared"
 $datapath = "$env:USERPROFILE\.cloudflared"
-$providers = Get-Content "$pwd\transformed_providers.json" | ConvertFrom-Json
+$providers = Get-Content "$PSScriptRoot\transformed_providers.json" | ConvertFrom-Json
 
 function SetupMenu {
     Write-Host '1. Quick Setup'
@@ -265,3 +265,11 @@ irm https://github.com/chandeshpatwari/secure-dns-on-windows/raw/refs/heads/main
 irm https://github.com/chandeshpatwari/secure-dns-on-windows/raw/refs/heads/main/cloudflared-windows/transformed_providers.json > transformed_providers.json
 
 StartSetup
+
+
+
+
+
+
+
+
