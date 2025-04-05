@@ -225,11 +225,6 @@ function Reset-Setup {
     
 }
 
-$Command = 'cloudflared'
-$Application = 'cloudflared.exe'
-$servicepath = "$env:SYSTEMROOT\system32\config\systemprofile\.cloudflared"
-$datapath = "$env:USERPROFILE\.cloudflared"
-$providers = Get-Content "$PSScriptRoot\transformed_providers.json" | ConvertFrom-Json
 
 function SetupMenu {
     Write-Host '1. Quick Setup'
@@ -263,6 +258,13 @@ mkdir $env:TEMP/dohsetup
 cd $env:TEMP/dohsetup
 irm https://github.com/chandeshpatwari/secure-dns-on-windows/raw/refs/heads/main/cloudflared-windows/config.yaml > config.yml
 irm https://github.com/chandeshpatwari/secure-dns-on-windows/raw/refs/heads/main/cloudflared-windows/transformed_providers.json > transformed_providers.json
+
+$Command = 'cloudflared'
+$Application = 'cloudflared.exe'
+$servicepath = "$env:SYSTEMROOT\system32\config\systemprofile\.cloudflared"
+$datapath = "$env:USERPROFILE\.cloudflared"
+$providers = Get-Content "$PSScriptRoot\transformed_providers.json" | ConvertFrom-Json
+
 
 StartSetup
 
